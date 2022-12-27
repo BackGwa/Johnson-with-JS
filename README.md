@@ -4,7 +4,9 @@
 ## <big><p align=center><b>Johnson<b></p></big>
 
 <p align=center><b>Johnson으로 JavaScript에서 급식 정보를 편하게 가져오기</b></p>
+<br>
 
+>> 현재 Johnson With JS는 안정화되지 않았습니다!!
 
 <br>
 
@@ -12,58 +14,57 @@
 ## **사용방법**
 <br>
 
-`Meal_Get` 함수를 사용하여 급식 식단을 불러올 수 있습니다. 불러온 식단은 `Array` 형식으로 반환됩니다.<br>
-> `Meal_Get` 함수는 ```(학교타입, 학교코드, 날짜, 알레르기_정보_표시, 자동_가져오기, 급식_시간대)```의 정보를 매개변수로 받습니다.
+`Meal_Get` 함수를 사용하여 급식 식단을 불러올 수 있습니다. 불러온 식단은 `Array`로 반환됩니다.<br>
+> `Meal_Get` 함수는 `(학교타입, 학교코드, 날짜, 알레르기_정보_표시, 자동_가져오기, 급식_시간대)`의 정보를 매개변수로 받습니다.
 
 <br>
 
 ### **매개변수**
 
-|매개변수|설명|선택사항|
-|:-------:|:-------|:-------|
-|학교타입|학교의 타입을 지정합니다.|필요|
-|학교코드|학교의 고유코드를 지정합니다.|필요|
-|날짜|[년, 월, 일]의 급식 정보를 반환합니다.|기본값 -> ```[현재 년도, 현재 월, 현재 일]```|
-|알레르기_정보_표시|알레르기 정보 표시 여부를 지정합니다.|기본값 -> ```false```|
-|자동_가져오기|현재 시간대에 맞는 급식 정보 반환여부를 지정합니다.|기본값 -> ```true```|
-|급식_시간대|가져올 급식 식단의 시간대를 지정합니다.|'자동_가져오기'가 ```true```라면 필요하지 않습니다.|
-
-#### **매개변수에 따른 값 타입**
-
-|매개변수|타입|값|
-|:-------:|:-------:|:-------|
-|학교타입|```String```|초등 : ```elementary```, 중등 : ```middle```, 고등 : ```high```|
-|학교코드|```String```|<a href = 'https://schoolmenukr.ml/code/app'>이 곳에서 검색하여 나온 코드를 입력하세요.</a>|
-|알레르기_정보_표시|```Boolean```|표시 : ```true```, 숨기기 : ```false```|
-|자동_가져오기|```Boolean```|활성화 : ```true```, 비활성화 : ```false```|
-|날짜|```Array```|년/월/일 : ```[년, 월, 일]```|
-|급식_시간대|```String```|조식 : ```breakfast```, 중식 : ```lunch```, 석식 : ```dinner```|
+|매개변수|타입|설명|선택사항|값|
+|:-------:|:-------:|:-------|:-------|:-------|
+|학교타입|String|학교의 타입을 지정합니다.|필요|초등 : ```elementary```, 중등 : ```middle```, 고등 : ```high```|
+|학교코드|String|학교의 고유코드를 지정합니다.|필요|<a href = 'https://schoolmenukr.ml/code/app'>이 곳에서 검색하여 나온 코드를 입력하세요.</a>|
+|날짜|Array|[년, 월, 일]의 급식 정보를 반환합니다.|기본값 -> ```[현재 년도, 현재 월, 현재 일]```|표시 : ```true```, 숨기기 : ```false```|
+|알레르기_정보_표시|Boolean|알레르기 정보 표시 여부를 지정합니다.|기본값 -> ```false```|활성화 : ```true```, 비활성화 : ```false```|
+|자동_가져오기|Boolean|현재 시간대에 맞는 급식 정보 반환여부를 지정합니다.|기본값 -> ```true```|년/월/일 : ```[년, 월, 일]```|
+|급식_시간대|String|가져올 급식 식단의 시간대를 지정합니다.|'자동_가져오기'가 ```true```라면 필요하지 않습니다.|조식 : ```breakfast```, 중식 : ```lunch```, 석식 : ```dinner```|
 
 <br>
 
 ### **예제 코드**
 
 ```html
+<!DOCTYPE html>
+<html>
 
-<input type="text" id="school-type" name="school-type" placeholder="학교 타입"/>
-<input type="text" id="school-code" name="school-code" placeholder="학교 코드"/>
+    <head>
+        <meta charset="UTF-8" />
+        <script src="script/JohnsonLib.js"></script>
+    </head>
 
-<button id="get-meal" type="submit">급식 정보 가져오기</button>
+    <body>
+        <input type="text" id="school-type" name="school-type" placeholder="학교 타입"/>
+        <input type="text" id="school-code" name="school-code" placeholder="학교 코드"/>
 
-<div id="meal" class="meal"></div>
-      
-<script>
-    const getMeal = async () => {
-        const schoolType = document.getElementById("school-type").value;
-        const schoolCode = document.getElementById("school-code").value;
+        <button id="get-meal" type="submit">급식 정보 가져오기</button>
 
-        const meal = await Meal_Get(schoolType, schoolCode);
-        const mealElement = document.getElementById("meal");
-        mealElement.innerHTML = meal.join("<br>");
-    };
-    document.getElementById("get-meal").addEventListener("click", getMeal);
-</script>
+        <div id="meal" class="meal"></div>
+            
+        <script>
+            const getMeal = async () => {
+                const schoolType = document.getElementById("school-type").value;
+                const schoolCode = document.getElementById("school-code").value;
 
+                const meal = await Meal_Get(schoolType, schoolCode);
+                const mealElement = document.getElementById("meal");
+                mealElement.innerHTML = meal.join("<br>");
+            };
+            document.getElementById("get-meal").addEventListener("click", getMeal);
+        </script>
+    </body>
+
+</html>
 ```
 
 #### **출력**
