@@ -5,8 +5,7 @@
 
 <p align=center><b>Johnson으로 JavaScript에서 급식 정보를 편하게 가져오기</b></p>
 <br>
-
->> 현재 Johnson With JS는 안정화되지 않았습니다!!
+<p align=center>현재 Johnson With JS는 안정화되지 않았습니다!!</p>
 
 <br>
 
