@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+  <head>
+    <title>Johnson with JS</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="script/JohnsonLib.js"></script>
+  </head>
+
+    <body>
+        <h1>Johnson With JS 예제</h1>
+            <table>
+                <tr>
+                    <td>
+                        <select id="school-type" >
+                            <option value="elementary">초등학교</option>
+                            <option value="middle">중학교</option>
+                            <option value="high" selected>고등학교</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" id="school-code" name="school-code" placeholder="학교 코드" value="N100000164"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button id="get-meal" type="submit">급식 정보 가져오기</button>
+                    </td>
+                </tr>
+            </table>
+
+        <div id="meal" class="meal"></div>
+      
+        <script>
+            const getMeal = async () => {
+                const schoolType = document.getElementById("school-type").value;
+                const schoolCode = document.getElementById("school-code").value;
+
+                const meal = await Meal_Get(schoolType, schoolCode);
+                const mealElement = document.getElementById("meal");
+                mealElement.innerHTML = meal.join("<br>");
+            };
+            document.getElementById("get-meal").addEventListener("click", getMeal);
+        </script>
+    </body>
+
+</html>
