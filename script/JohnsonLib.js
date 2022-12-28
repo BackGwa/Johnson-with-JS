@@ -9,18 +9,17 @@ const mealZone = (data, usetime, mealValue) => {
     const isdr = data['menu'][0]['dinner'].length !== 0;
 
     if (isbf && islc && isdr) {
-      mealzone = hour > 0 && hour < 8 ? 'breakfast' : (hour > 8 && hour < 14 ? 'lunch' : 'dinner');
+      mealzone = hour >= 0 && hour < 8 ? 'breakfast' : (hour >= 8 && hour < 14 ? 'lunch' : 'dinner');
     } else if (isbf && islc) {
-      mealzone = hour > 0 && hour < 8 ? 'breakfast' : 'lunch';
+      mealzone = hour >= 0 && hour < 8 ? 'breakfast' : 'lunch';
     } else if (islc && isdr) {
-      mealzone = hour > 0 && hour < 14 ? 'lunch' : 'dinner';
+      mealzone = hour >= 0 && hour < 14 ? 'lunch' : 'dinner';
     } else {
       mealzone = islc ? 'lunch' : 'None';
     }
   }
 
   result = mealzone !== 'None' ? [mealzone, ...data['menu'][0][mealzone]] : ['급식 정보가 존재하지 않습니다.'];
-
   return result;
 };
 
