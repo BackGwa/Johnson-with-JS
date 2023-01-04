@@ -1,6 +1,6 @@
 {
   "name": "johnson-js",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Johnson으로 Javascript에서 급식 정보 간단하게 가져오기",
   "main": "JohnsonLib.js",
   "scripts": {
@@ -20,5 +20,5 @@
   "bugs": {
     "url": "https://github.com/BackGwa/Johnson-with-JS/issues"
   },
-  "homepage": "https://github.com/BackGwa/Johnson-with-JS#readme"
+  "homepage": "https://github.com/BackGwa/Johnson-with-JS"
 }
