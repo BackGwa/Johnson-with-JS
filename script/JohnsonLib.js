@@ -19,7 +19,7 @@ const mealZone = (data, usetime, mealValue) => {
     }
   }
 
-  result = mealzone !== 'None' ? [mealzone, ...data['menu'][0][mealzone]] : ['급식 정보가 존재하지 않습니다.'];
+  result = mealzone !== 'None' ? [mealzone, ...data['menu'][0][mealzone]] : ['오늘 급식 정보가 존재하지 않습니다.'];
   return result;
 };
 
@@ -27,7 +27,7 @@ const alegInfo = (mealInfo) => {
   return typeof mealInfo === 'object' ? `${mealInfo['name']}${mealInfo['allergy']}` : mealInfo;
 };
 
-const Meal_Get = async (schoolType, schoolCode, date = [new Date().getFullYear(), new Date().getMonth() + 1, new Date().getDate()], aleg = false, usetime = true, zoneValue = 'auto') => {
+const MealRequest = async (schoolType, schoolCode, date = [new Date().getFullYear(), new Date().getMonth() + 1, new Date().getDate()], aleg = false, usetime = true, zoneValue = 'auto') => {
   const allergy = aleg ? 'formed' : 'hidden';
   const API = `https://schoolmenukr.ml/api/${schoolType}/${schoolCode}?year=${date[0]}&month=${date[1]}&date=${date[2]}&allergy=${allergy}`;
   const response = await fetch(API);
