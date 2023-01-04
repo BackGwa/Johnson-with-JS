@@ -11,6 +11,7 @@
 ---
 ## **npm 설치**
 > `npm i johnson-js`
+#### npm 링크 : https://www.npmjs.com/package/johnson-js
 ---
 ## **사용방법**
 <br>
