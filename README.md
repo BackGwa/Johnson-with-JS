@@ -1,5 +1,5 @@
 
-<p align=center><img src="res/jsjs.png" width="500"></p>
+<p align=center><img src="res/Johnson_Image.png" width="700"></p>
 
 ## <big><p align=center><b>Johnson<b></p></big>
 
