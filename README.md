@@ -13,8 +13,8 @@
 ## **사용방법**
 <br>
 
-`Meal_Get` 함수를 사용하여 급식 식단을 불러올 수 있습니다. 불러온 식단은 `Array`로 반환됩니다.<br>
-> `Meal_Get` 함수는 `(학교타입, 학교코드, 날짜, 알레르기_정보_표시, 자동_가져오기, 급식_시간대)`의 정보를 매개변수로 받습니다.
+`MealRequest` 함수를 사용하여 급식 식단을 불러올 수 있습니다. 불러온 식단은 `Array`로 반환됩니다.<br>
+> `MealRequest` 함수는 `(학교타입, 학교코드, 날짜, 알레르기_정보_표시, 자동_가져오기, 급식_시간대)`의 정보를 매개변수로 받습니다.
 
 <br>
 
@@ -45,23 +45,14 @@
     </head>
 
     <body>
-        <input type="text" id="school-type" name="school-type" placeholder="학교 타입"/>
-        <input type="text" id="school-code" name="school-code" placeholder="학교 코드"/>
-
-        <button id="get-meal" type="submit">급식 정보 가져오기</button>
-
-        <div id="meal" class="meal"></div>
-            
+        <div id="Meal_Text"></div>
         <script>
-            const getMeal = async () => {
-                const schoolType = document.getElementById("school-type").value;
-                const schoolCode = document.getElementById("school-code").value;
-
-                const meal = await Meal_Get(schoolType, schoolCode);
-                const mealElement = document.getElementById("meal");
+            async function Meal (schoolType, schoolCode){
+                const meal = await MealRequest(schoolType, schoolCode);
+                const mealElement = document.getElementById("Meal_Text");
                 mealElement.innerHTML = meal.join("<br>");
             };
-            document.getElementById("get-meal").addEventListener("click", getMeal);
+            Meal('high', 'N100000164')
         </script>
     </body>
 
@@ -70,7 +61,7 @@
 
 #### **출력**
 ```html
-<div id="meal" class="meal">dinner<br>친환경찹쌀밥<br>부산식돼지국밥<br>청양계란장조림<br>친환경부추겉절이<br>배추김치<br>불고기사각피자</div>
+<div id="Meal_Text">lunch<br>직접구운 수제 누룽지탕<br>친환경콩나물무침(자율)<br>해물우동볶음면(주찬)<br>수제다코야끼<br>배추김치<br>딸바라떼<br>동물모양찐빵</div>
 ```
 
 <br>
