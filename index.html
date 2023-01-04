@@ -36,13 +36,10 @@
         <div id="meal" class="meal"></div>
       
         <script>
-            const getMeal = async () => {
+            function getMeal(){
                 const schoolType = document.getElementById("school-type").value;
                 const schoolCode = document.getElementById("school-code").value;
-
-                const meal = await MealRequest(schoolType, schoolCode);
-                const mealElement = document.getElementById("meal");
-                mealElement.innerHTML = meal.join("<br>");
+                CreateMealText('meal', schoolType, schoolCode)
             };
             document.getElementById("get-meal").addEventListener("click", getMeal);
         </script>
