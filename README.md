@@ -50,7 +50,7 @@
         <div id="Meal_Text"></div>
         <script>
 
-            <!-- [1] MealRequest를 사용한 일반적인 방법 -->
+            // [1] MealRequest를 사용한 일반적인 방법
             async function Meal(schoolType, schoolCode){
                 const meal = await MealRequest(schoolType, schoolCode);
                 const mealElement = document.getElementById("Meal_Text");
@@ -58,7 +58,7 @@
             };
             Meal('high', 'N100000164')
 
-            <!-- [2] CreateMealText를 사용한 간단한 방법 -->
+            // [2] CreateMealText를 사용한 간단한 방법
             CreateMealText('Meal_Text', 'high', 'N100000164')
 
         </script>
