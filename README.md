@@ -5,7 +5,6 @@
 
 <p align=center><b>Johnson으로 JavaScript에서 급식 정보를 편하게 가져오기</b></p>
 <br>
-<i><p align=center>현재 Johnson With JS는 안정화되지 않았습니다!!</p></i>
 
 <br>
 
@@ -20,13 +19,13 @@
 
 ### **매개변수**
 
-|매개변수|타입|설명|선택사항|값|
+|매개변수|타입|설명|값|유형|
 |:-------:|:-------:|:-------|:-------|:-------|
-|학교타입|String|학교의 타입을 지정합니다.|필요|초등 : `elementary`, 중등 : `middle`, 고등 : `high`|
-|학교코드|String|학교의 고유코드를 지정합니다.|필요|<a href = 'https://schoolmenukr.ml/code/app'>이 곳에서 검색하여 나온 코드를 입력하세요.</a>|
-|날짜|Array|[년, 월, 일]의 급식 정보를 반환합니다.|기본값 -> `[현재 년도, 현재 월, 현재 일]`|표시 : `true`, 숨기기 : `false`|
+|학교타입|String|급식 정보를 반환할 학교의 유형을 지정합니다.|필수|초등 : `elementary`, 중등 : `middle`, 고등 : `high`|
+|학교코드|String|급식 정보를 반환할 학교의 고유코드를 지정합니다.|필수|<a href = 'https://schoolmenukr.ml/code/app'>이 곳에서 검색하여 나온 코드를 입력하세요.</a>|
+|날짜|Array|반환할 급식 정보의 날짜를 지정합니다.|기본값 -> `[현재 년도, 현재 월, 현재 일]`|년/월/일 : `[년, 월, 일]`|
 |알레르기_정보_표시|Boolean|알레르기 정보 표시 여부를 지정합니다.|기본값 -> `false`|활성화 : `true`, 비활성화 : `false`|
-|자동_가져오기|Boolean|현재 시간대에 맞는 급식 정보 반환여부를 지정합니다.|기본값 -> `true`|년/월/일 : `[년, 월, 일]`|
+|자동_가져오기|Boolean|자동으로 현재 시간대에 맞는 급식 정보 반환 여부를 지정합니다.|기본값 -> `true`|활성화 : `true`, 비활성화 : `false`|
 |급식_시간대|String|가져올 급식 식단의 시간대를 지정합니다.|'자동_가져오기'가 `true`라면 필요하지 않습니다.|조식 : `breakfast`, 중식 : `lunch`, 석식 : `dinner`|
 
 <br>
@@ -47,7 +46,7 @@
     <body>
         <div id="Meal_Text"></div>
         <script>
-            async function Meal (schoolType, schoolCode){
+            async function Meal(schoolType, schoolCode){
                 const meal = await MealRequest(schoolType, schoolCode);
                 const mealElement = document.getElementById("Meal_Text");
                 mealElement.innerHTML = meal.join("<br>");
