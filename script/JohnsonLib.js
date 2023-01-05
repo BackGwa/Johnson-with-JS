@@ -96,18 +96,18 @@ function NowDate(){
  * @param {Array} Date 반환할 급식 정보의 날짜
  * @param {Boolean} Allergy 알레르기 정보 표시 여부
  * @param {Boolean} AutoMeal 자동으로 현재 시간대에 맞는 급식 정보 반환 여부
- * @param {String} zoneValue 가져올 급식 식단의 시간대
+ * @param {String} MealValue 가져올 급식 식단의 시간대
  * ---
  * @returns `[급식 시간대 + 급식 정보 + ...]`로 반환합니다.
  * ---
 */
 
-async function MealRequest(SchoolType, SchoolCode, Date = NowDate(), Allergy = false, AutoMeal = true, zoneValue = 'auto'){
+async function MealRequest(SchoolType, SchoolCode, Date = NowDate(), Allergy = false, AutoMeal = true, MealValue = 'auto'){
   const AllergyMark = Allergy ? 'formed' : 'hidden';
   const API = `https://schoolmenukr.ml/api/${SchoolType}/${SchoolCode}?year=${Date[0]}&month=${Date[1]}&date=${Date[2]}&allergy=${AllergyMark}`;
   const response = await fetch(API);
   const Data = await response.json();
-  const Result = ParsingMeal(Data, GetMealZone(Data, AutoMeal, zoneValue));
+  const Result = ParsingMeal(Data, GetMealZone(Data, AutoMeal, MealValue));
 
   if (Allergy) {
     let AllergyResult = [];
