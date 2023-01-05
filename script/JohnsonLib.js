@@ -9,7 +9,7 @@
  * @param {Boolean} AutoMeal 자동으로 현재 시간대에 맞는 급식 정보 반환 여부
  * @param {String} MealValue 가져올 급식 식단의 시간대
  * ---
- * @returns 파라미터에 입력 된 값을 기반으로 알맞은 급식 시간대를 반환합니다.
+ * @returns `breakfast`, `lunch`, `dinner` 중 값을 알맞게 반환합니다. 
  * ---
 */
 
@@ -44,10 +44,10 @@ function GetMealZone(Data, AutoMeal, MealValue){
  * ## `ParsingMeal`
  * ### 급식 정보를 파싱하여 반환합니다.
  * ---
- * @param {object} Data
- * @param {string} MealZone
+ * @param {object} Data 급식 정보가 포함된 JSON 데이터
+ * @param {string} MealZone 가져올 급식 시간대
  * ---
- * @returns 급식 정보를 파싱하여 반환합니다.
+ * @returns `[급식 시간대 + 급식 정보 + ...]` 혹은 `'오늘 급식 정보가 존재하지 않습니다.'`로 반환됩니다.
  * ---
 */
 
@@ -63,7 +63,7 @@ function ParsingMeal(Data, MealZone){
  * ---
  * @param {object} MealInfo 급식 정보와 알레르기 정보가 포함된 `object`
  * ---
- * @returns 급식 정보와 알레르기 정보를 함께 반환합니다.
+ * @returns 입력 된 급식 정보를 `급식 정보 + 알레르기 정보`로 반환합니다.
  * ---
 */
 
@@ -98,7 +98,7 @@ function NowDate(){
  * @param {Boolean} AutoMeal 자동으로 현재 시간대에 맞는 급식 정보 반환 여부
  * @param {String} zoneValue 가져올 급식 식단의 시간대
  * ---
- * @returns 파라미터에 입력 된 값을 기반으로 API에 요청하고 그 정보를 파싱하여 반환합니다.
+ * @returns `[급식 시간대 + 급식 정보 + ...]`로 반환합니다.
  * ---
 */
 
@@ -131,7 +131,7 @@ async function MealRequest(SchoolType, SchoolCode, Date = NowDate(), Allergy = f
  * @param {String} SchoolType 급식 정보를 반환할 학교의 유형
  * @param {String} SchoolCode 급식 정보를 반환할 학교의 고유코드
  * ---
- * @returns 파라미터에 입력 된 값을 기반으로 API에 요청하고 그 정보를 파싱하여 설정 된 `div`에 포함합니다.
+ * @returns `[급식 시간대 + 급식 정보 + ...]`로 반환하고 설정한 `div`에 포함합니다.
  * ---
 */
 
