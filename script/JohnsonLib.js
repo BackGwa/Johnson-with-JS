@@ -1,4 +1,4 @@
-// 'Johnson With JS' [Version : 23b1]
+// 'Johnson With JS' [Version : 23b3]
 
 /**
  * ---
@@ -75,9 +75,9 @@ function AllergyInfo(MealInfo){
 /**
  * ---
  * ## `NowDate`
- * ### 오늘 날짜를 배열로 반환합니다.
+ * ### 오늘 날짜를 `[년, 월, 일]`와 같은 배열로 반환합니다.
  * ---
- * @returns 오늘 날짜를 배열로 반환합니다.
+ * @returns 오늘 날짜를 `[년, 월, 일]`와 같은 배열로 반환합니다.
  * ---
 */
 
