@@ -78,10 +78,10 @@
                 const mealElement = document.getElementById("Meal_Text");
                 mealElement.innerHTML = meal.join("<br>");
             };
-            Meal('high', 'N100000164')
+            Meal('high', 'N100000164');
 
             // [2] CreateMealText를 사용한 간단한 방법
-            CreateMealText('Meal_Text', 'high', 'N100000164')
+            CreateMealText('Meal_Text', 'high', 'N100000164');
 
         </script>
     </body>
