@@ -36,7 +36,7 @@ function GetMealZone(Data, AutoMeal, MealValue){
     }
   }
   return MealZone;
-};
+}
 
 
 /**
@@ -53,7 +53,7 @@ function GetMealZone(Data, AutoMeal, MealValue){
 
 function ParsingMeal(Data, MealZone){
   return MealZone !== 'NULL_MEAL' ? [MealZone, ...Data['menu'][0][MealZone]] : ['오늘 급식 정보가 존재하지 않습니다.'];
-};
+}
 
 
 /**
@@ -69,7 +69,7 @@ function ParsingMeal(Data, MealZone){
 
 function AllergyInfo(MealInfo){
   return typeof MealInfo === 'object' ? `${MealInfo['name']}${MealInfo['allergy']}` : MealInfo;
-};
+}
 
 
 /**
@@ -118,7 +118,7 @@ async function MealRequest(SchoolType, SchoolCode, Date = NowDate(), Allergy = f
   } else {
     return Result;
   }
-};
+}
 
 
 /**
