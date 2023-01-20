@@ -1,6 +1,6 @@
 {
   "name": "johnson-js",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Johnson으로 Javascript에서 급식 정보 간단하게 가져오기",
   "main": "JohnsonLib.js",
   "scripts": {
