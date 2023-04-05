@@ -104,7 +104,7 @@ function NowDate(){
 
 async function MealRequest(SchoolType, SchoolCode, Date = NowDate(), Allergy = false, AutoMeal = true, MealValue = 'auto'){
   const AllergyMark = Allergy ? 'formed' : 'hidden';
-  const API = `https://schoolmenukr.ml/api/${SchoolType}/${SchoolCode}?year=${Date[0]}&month=${Date[1]}&date=${Date[2]}&allergy=${AllergyMark}`;
+  const API = `https://school-api.xyz/api/${SchoolType}/${SchoolCode}?year=${Date[0]}&month=${Date[1]}&date=${Date[2]}&allergy=${AllergyMark}`;
   const response = await fetch(API);
   const Data = await response.json();
   const Result = ParsingMeal(Data, GetMealZone(Data, AutoMeal, MealValue));
